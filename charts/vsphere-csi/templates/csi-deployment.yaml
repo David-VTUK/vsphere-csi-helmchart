@@ -147,7 +147,7 @@ spec:
           path: /var/lib/csi/sockets/pluginproxy/csi.vsphere.vmware.com
           type: DirectoryOrCreate
       nodeSelector:
-        node-role.kubernetes.io/master: ""
+        node-role.kubernetes.io/controlplane: "true"
         {{- with .Values.csideployment.nodeSelector | default .Values.nodeSelector }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
